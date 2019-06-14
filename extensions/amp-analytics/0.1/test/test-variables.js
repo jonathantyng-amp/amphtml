@@ -275,11 +275,20 @@ describes.fakeWin('amp-analytics.VariableService', {amp: true}, env => {
     it('if works with true', () =>
       check('$IF(true, truthy, falsey)', 'truthy'));
 
+    it('if works with other string', () =>
+      check('$IF(test, truthy, falsey)', 'truthy'));
+
     it('if works with false', () =>
       check('$IF(false, truthy, falsey)', 'falsey'));
 
-    it('if works with other string', () =>
-      check('$IF(test, truthy, falsey)', 'falsey'));
+    it('if works with empty string', () =>
+      check('$IF(, truthy, falsey)', 'falsey'));
+
+    it('if works with null', () =>
+      check('$IF(null, truthy, falsey)', 'falsey'));
+
+    it('if works with undefined', () =>
+      check('$IF(undefined, truthy, falsey)', 'falsey'));
 
     it('equals works (truth-y test)', () => {
       return check('$EQUALS(testValue, testValue)', 'true');

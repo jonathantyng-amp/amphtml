@@ -362,5 +362,11 @@ export function getConsentStateStr(element) {
  * @return {bool}
  */
 function stringToBool_(str) {
-  return str.toLowerCase() === 'true';
+  return (
+    str !== 'false' &&
+    str !== '' &&
+    str !== '0' &&
+    str !== 'null' &&
+    str !== 'undefined'
+  );
 }
